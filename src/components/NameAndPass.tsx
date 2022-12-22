@@ -1,16 +1,17 @@
 import { Icon, Input, Pressable, Stack } from "native-base";
 import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { setName, setPassword } from "../app/counter/counterSlice";
 
-type Props = {};
+type Props = { navigation: any };
 
-const NameAndPass = (props: Props) => {
-  const [show, setShow] = React.useState(false);
-  const [name, setName] = React.useState("");
-  const [pass, setPass] = React.useState("");
-  const showInfo = () => {
-    alert(name + " : " + pass);
-  };
+const NameAndPass = ({ navigation }: Props) => {
+  const [show, setShow] = React.useState(true);
+  const Name = useSelector((state: any) => state.counter.Name);
+  const Password = useSelector((state: any) => state.counter.Password);
+  const dispatch = useDispatch();
+
   return (
     <Stack space={4} w="100%" alignItems="center">
       <Input
@@ -19,8 +20,8 @@ const NameAndPass = (props: Props) => {
           md: "25%",
         }}
         color="white"
-        value={name}
-        onChangeText={(val) => setName(val)}
+        value={Name}
+        onChangeText={(val) => dispatch(setName(val))}
         InputLeftElement={
           <Icon
             as={<MaterialIcons name="person" />}
@@ -36,8 +37,10 @@ const NameAndPass = (props: Props) => {
           base: "95%",
           md: "25%",
         }}
-        value={pass}
-        onChangeText={(val) => setPass(val)}
+        value={Password}
+        onChangeText={(val) => {
+          dispatch(setPassword(val));
+        }}
         type={show ? "text" : "password"}
         InputRightElement={
           <Pressable onPress={() => setShow(!show)}>

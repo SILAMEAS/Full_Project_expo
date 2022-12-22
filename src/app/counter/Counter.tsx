@@ -5,7 +5,7 @@ import { decrement, increment } from "./counterSlice";
 import { View, Text, Box, Button, Center } from "native-base";
 
 export function Counter() {
-  const count = useSelector((state: RootState) => state.counter.value);
+  const count = useSelector((state: any) => state.counter.value);
   const dispatch = useDispatch();
 
   return (

@@ -10,9 +10,9 @@ export interface CounterState {
 
 const initialState: CounterState = {
   value: 0,
-  Email: "sila@gmail.com",
-  Name: "sila",
-  Password: "sila1234",
+  Email: "",
+  Name: "",
+  Password: "",
 };
 
 export const counterSlice = createSlice({
@@ -26,6 +26,12 @@ export const counterSlice = createSlice({
     setEmail: (state, action) => {
       state.Email = action.payload;
     },
+    setName: (state, action) => {
+      state.Name = action.payload;
+    },
+    setPassword: (state, action) => {
+      state.Password = action.payload;
+    },
     decrement: (state) => {
       state.value -= 1;
     },
@@ -36,7 +42,13 @@ export const counterSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, setEmail } =
-  counterSlice.actions;
+export const {
+  increment,
+  decrement,
+  incrementByAmount,
+  setEmail,
+  setName,
+  setPassword,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;

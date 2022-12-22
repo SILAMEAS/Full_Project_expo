@@ -18,13 +18,32 @@ import { Platform } from "react-native";
 
 import { TextInput } from "react-native";
 import NameAndPass from "../NameAndPass";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setName, setPassword } from "../../app/counter/counterSlice";
 
 type Props = {};
 
 const FormLogin = ({ navigation }: any) => {
-  const Isweb = Platform.OS === "web";
-  const Email = useSelector((state: any) => state.counter.Email);
+  const Name = useSelector((state: any) => state.counter.Name);
+  const Password = useSelector((state: any) => state.counter.Password);
+  const dispatch = useDispatch();
+
+  const showLogin = () => {
+    if (Name === "sila" && Password === "123") {
+      alert("Success Login");
+      navigation.navigate("Home");
+    } else if (Name === "" || Password === "") {
+      alert("All field blank");
+    } else if (Name === "sila" || Password !== "123") {
+      alert("Invalid Password");
+    } else if (Name !== "sila" || Password === "123") {
+      alert("Invalid Name");
+    } else {
+      alert(" Invalid");
+      dispatch(setName(""));
+      dispatch(setPassword(""));
+    }
+  };
   return (
     <Center height={"100%"} bg="red.300">
       <Image
@@ -61,7 +80,7 @@ const FormLogin = ({ navigation }: any) => {
             borderColor={"white"}
             borderRadius="lg"
           >
-            <NameAndPass />
+            <NameAndPass navigation={navigation} />
             <Center>
               <Button.Group
                 space={2}
@@ -76,7 +95,11 @@ const FormLogin = ({ navigation }: any) => {
                 >
                   Register
                 </Button>
-                <Button onPress={() => navigation.navigate("Home")}>
+                <Button
+                  onPress={() => {
+                    showLogin();
+                  }}
+                >
                   Login
                 </Button>
               </Button.Group>
