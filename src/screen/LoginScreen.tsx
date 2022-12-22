@@ -14,11 +14,11 @@ import FormLogin from "../components/container/FormLogin";
 
 type Props = {};
 
-const LoginScreen = (props: Props) => {
+const LoginScreen = ({ navigation }: any) => {
   return (
     <NativeBaseProvider>
       <Box safeArea>
-        <FormLogin />
+        <FormLogin navigation={navigation} />
       </Box>
     </NativeBaseProvider>
   );

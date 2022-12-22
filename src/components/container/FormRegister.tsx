@@ -18,15 +18,14 @@ import { Platform } from "react-native";
 
 import { TextInput } from "react-native";
 import NameAndPass from "../NameAndPass";
-import { useSelector } from "react-redux";
+import Emall from "../Emaill";
 
 type Props = {};
 
-const FormLogin = ({ navigation }: any) => {
+const FormRegister = ({ navigation }: any) => {
   const Isweb = Platform.OS === "web";
-  const Email = useSelector((state: any) => state.counter.Email);
   return (
-    <Center height={"100%"} bg="red.300">
+    <Center height={"100%"} bg="blue.300">
       <Image
         source={require("../../../assets/game.jpg")}
         height="100%"
@@ -42,7 +41,7 @@ const FormLogin = ({ navigation }: any) => {
         borderRadius={"lg"}
         py="2"
         width={Platform.OS === "web" ? "50%" : "90%"}
-        height={"300"}
+        height={"350"}
       >
         <VStack space={5}>
           <Heading
@@ -52,7 +51,7 @@ const FormLogin = ({ navigation }: any) => {
             textDecorationLine="underline"
             textAlign={"center"}
           >
-            Login
+            Register
           </Heading>
           <Box
             borderWidth={2}
@@ -62,6 +61,7 @@ const FormLogin = ({ navigation }: any) => {
             borderRadius="lg"
           >
             <NameAndPass />
+            <Emall />
             <Center>
               <Button.Group
                 space={2}
@@ -70,14 +70,17 @@ const FormLogin = ({ navigation }: any) => {
                 justifyContent={"space-around"}
               >
                 <Button
+                  onPress={() => navigation.navigate("Home")}
+                  bg={"red.700"}
+                >
+                  Back to Login
+                </Button>
+                <Button
                   _pressed={{ bg: "amber.300" }}
-                  bg="green.400"
-                  onPress={() => navigation.navigate("Register")}
+                  bg="blue.600"
+                  onPress={() => navigation.navigate("Login")}
                 >
                   Register
-                </Button>
-                <Button onPress={() => navigation.navigate("Home")}>
-                  Login
                 </Button>
               </Button.Group>
             </Center>
@@ -88,4 +91,4 @@ const FormLogin = ({ navigation }: any) => {
   );
 };
 
-export default FormLogin;
+export default FormRegister;

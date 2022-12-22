@@ -14,15 +14,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "../screen/LoginScreen";
 import HomeScreen from "../screen/HomeScreen";
-function DetailsScreen({ navigation }: any) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Details Screen</Text>
-      <Button onPress={() => navigation.navigate("Home")}>Go to Home</Button>
-    </View>
-  );
-}
-
+import RegisterScreen from "../screen/RegisterScreen";
+import { Counter } from "../app/counter/Counter";
 const Stack = createNativeStackNavigator();
 export default function ControllScreen() {
   return (
@@ -31,6 +24,8 @@ export default function ControllScreen() {
         <Stack.Navigator initialRouteName="Login">
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="Redux" component={Counter} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
