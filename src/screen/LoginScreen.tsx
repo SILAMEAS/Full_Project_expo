@@ -16,11 +16,18 @@ type Props = {};
 
 const LoginScreen = ({ navigation }: any) => {
   return (
-    <NativeBaseProvider>
-      <Box safeArea>
-        <FormLogin navigation={navigation} />
-      </Box>
-    </NativeBaseProvider>
+    <Center flex={1}>
+      {" "}
+      <FormLogin navigation={navigation} />
+      <Button
+        position={"absolute"}
+        bottom="0"
+        right={0}
+        onPress={() => navigation.navigate("getusers")}
+      >
+        Config data
+      </Button>
+    </Center>
   );
 };
 

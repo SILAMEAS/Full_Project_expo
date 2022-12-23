@@ -1491,6 +1491,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hashiprobr/expo-pdf-reader@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@hashiprobr/expo-pdf-reader/-/expo-pdf-reader-1.0.8.tgz#89d48428c98a35c78ebceb1a9f461853e5daddab"
+  integrity sha512-VZ6bTj+rEUrH6EDyAeVkxWCLB3nMeSZvi3ESgg0PGBIhlXiK/wOg6IFdVRkgXDmY76YhyiFbFGqFpI/hKvaj/g==
+
 "@internationalized/date@^3.0.2":
   version "3.0.2"
   resolved "https://registry.npmjs.org/@internationalized/date/-/date-3.0.2.tgz"
@@ -2780,10 +2785,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@~18.0.14":
+"@types/react@*":
   version "18.0.26"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.0.26.tgz"
   integrity sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@17":
+  version "17.0.52"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.52.tgz#10d8b907b5c563ac014a541f289ae8eaa9bf2e9b"
+  integrity sha512-vwk8QqVODi0VaZZpDXQCmEmiOuyjEFPY7Ttaw5vjM112LOq37yz1CDJGrRJwA1fYEq4Iitd5rnjd1yWAc/bT+A==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -5419,6 +5433,11 @@ expo-modules-core@1.0.4:
     compare-versions "^3.4.0"
     invariant "^2.2.4"
 
+expo-print@~12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/expo-print/-/expo-print-12.0.0.tgz#e20922d19a6eaf0bdaf81989a3108d4fcb44e1b6"
+  integrity sha512-S9MD1iL3xicFuNwNEpfcIt0B4Afs9L+H2qLBDNGksv1b7gRCIf0NUSuDexVHkKkmWxhu0Rg7ClChtNpaB2AoOQ==
+
 expo-pwa@0.0.124:
   version "0.0.124"
   resolved "https://registry.npmjs.org/expo-pwa/-/expo-pwa-0.0.124.tgz"
@@ -5428,6 +5447,11 @@ expo-pwa@0.0.124:
     chalk "^4.0.0"
     commander "2.20.0"
     update-check "1.5.3"
+
+expo-sharing@~11.0.1:
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/expo-sharing/-/expo-sharing-11.0.1.tgz#a2c6beb7458e04762a53b584c3b7b79ae422e2da"
+  integrity sha512-GlI2+fRxfdCNUftFPfqhbCSd6OQaVf/WNAADWZnRanRQRbQdQjM6L0oMmUTwQStc36cmzl+vGgNlouwdmTDseA==
 
 expo-status-bar@~1.4.2:
   version "1.4.2"
@@ -9565,10 +9589,10 @@ react-native-web@~0.18.9:
     postcss-value-parser "^4.2.0"
     styleq "^0.1.2"
 
-react-native-webview@11.18.1:
-  version "11.18.1"
-  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.18.1.tgz#0a1893abd391c8f0e7d4c5874bfa737ca6311225"
-  integrity sha512-1VoVmkbsHJ44WA+frMhNfua64t0u2jq80h25sUWrKJRiYrO0XIsKBnJcqrzuOH1ZAT/zDHTqBB5OU+bxEHLJmQ==
+react-native-webview@11.23.1:
+  version "11.23.1"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.23.1.tgz#6a4bf2620e491dd4fecf4e6dc079005117fae12c"
+  integrity sha512-bmqsdg4RYOUYD37R9XTrQALm7eD62KbLNPRfgvpLGd1SjaurvAjjsLrLN4mt6yOtKOMKeZvlcAl3x6De6cCQsA==
   dependencies:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"

@@ -16,7 +16,8 @@ import {
 } from "native-base";
 import { Platform } from "react-native";
 
-import { TextInput } from "react-native";
+const gamer = require("../../../assets/game.jpg");
+
 import NameAndPass from "../NameAndPass";
 import { useDispatch, useSelector } from "react-redux";
 import { setName, setPassword } from "../../app/counter/counterSlice";
@@ -32,12 +33,16 @@ const FormLogin = ({ navigation }: any) => {
     if (Name === "sila" && Password === "123") {
       alert("Success Login");
       navigation.navigate("Home");
+      dispatch(setName(""));
+      dispatch(setPassword(""));
     } else if (Name === "" || Password === "") {
       alert("All field blank");
-    } else if (Name === "sila" || Password !== "123") {
+    } else if (Name === "sila" && Password !== "123") {
       alert("Invalid Password");
-    } else if (Name !== "sila" || Password === "123") {
+      dispatch(setPassword(""));
+    } else if (Name !== "sila" && Password === "123") {
       alert("Invalid Name");
+      dispatch(setName(""));
     } else {
       alert(" Invalid");
       dispatch(setName(""));
@@ -45,15 +50,24 @@ const FormLogin = ({ navigation }: any) => {
     }
   };
   return (
-    <Center height={"100%"} bg="red.300">
-      <Image
-        source={require("../../../assets/game.jpg")}
-        height="100%"
-        position={"absolute"}
-        top="0"
-        opacity={"1"}
-        alt="background"
-      />
+    <Center height={"100%"} bg="black.300" width={"100%"}>
+      {Platform.OS === "web" ? (
+        <Image
+          source={{
+            uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+          }}
+          alt="image"
+        />
+      ) : (
+        <Image
+          source={require("../../../assets/game.jpg")}
+          height="100%"
+          position={"absolute"}
+          top="0"
+          opacity={"1"}
+          alt="background"
+        />
+      )}
 
       <VStack
         bg={"cyan.700"}

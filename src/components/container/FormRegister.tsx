@@ -19,11 +19,26 @@ import { Platform } from "react-native";
 import { TextInput } from "react-native";
 import NameAndPass from "../NameAndPass";
 import Emall from "../Emaill";
+import { useDispatch, useSelector } from "react-redux";
+import { setEmail, setName, setPassword } from "../../app/counter/counterSlice";
 
 type Props = {};
 
 const FormRegister = ({ navigation }: any) => {
   const Isweb = Platform.OS === "web";
+  const dispatch = useDispatch();
+  const Name = useSelector((state: any) => state.counter.Name);
+  const Password = useSelector((state: any) => state.counter.Password);
+  const Email = useSelector((state: any) => state.counter.Email);
+  const Empty = () => {
+    if (Name === "" || Password === "" || Email === "") {
+      alert("Field can't blank");
+    } else {
+      dispatch(setEmail(""));
+      alert("Register Success");
+      navigation.navigate("Login");
+    }
+  };
   return (
     <Center height={"100%"} bg="blue.300">
       <Image
@@ -60,7 +75,7 @@ const FormRegister = ({ navigation }: any) => {
             borderColor={"white"}
             borderRadius="lg"
           >
-            <NameAndPass />
+            <NameAndPass navigation={navigation} />
             <Emall />
             <Center>
               <Button.Group
@@ -70,7 +85,7 @@ const FormRegister = ({ navigation }: any) => {
                 justifyContent={"space-around"}
               >
                 <Button
-                  onPress={() => navigation.navigate("Home")}
+                  onPress={() => navigation.navigate("Login")}
                   bg={"red.700"}
                 >
                   Back to Login
@@ -78,7 +93,7 @@ const FormRegister = ({ navigation }: any) => {
                 <Button
                   _pressed={{ bg: "amber.300" }}
                   bg="blue.600"
-                  onPress={() => navigation.navigate("Login")}
+                  onPress={Empty}
                 >
                   Register
                 </Button>

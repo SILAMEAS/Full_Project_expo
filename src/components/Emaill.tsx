@@ -14,7 +14,7 @@ const Emall = (props: Props) => {
       <Input
         w={{
           base: "95%",
-          md: "25%",
+          md: "80%",
         }}
         color="white"
         value={Email}

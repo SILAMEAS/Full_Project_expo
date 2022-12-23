@@ -16,6 +16,10 @@ import LoginScreen from "../screen/LoginScreen";
 import HomeScreen from "../screen/HomeScreen";
 import RegisterScreen from "../screen/RegisterScreen";
 import { Counter } from "../app/counter/Counter";
+import Read from "../components/mobile/Read";
+import Rsq from "../components/mobile/RPS";
+import GetUsers from "../router/GetUsers";
+import ViewPDF from "../components/web/ViewPDF";
 const Stack = createNativeStackNavigator();
 export default function ControllScreen() {
   return (
@@ -26,6 +30,10 @@ export default function ControllScreen() {
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Redux" component={Counter} />
+          <Stack.Screen name="Read" component={Read} />
+          <Stack.Screen name="write" component={Rsq} />
+          <Stack.Screen name="getusers" component={GetUsers} />
+          <Stack.Screen name="url_web" component={ViewPDF} />
         </Stack.Navigator>
       </NavigationContainer>
     </NativeBaseProvider>
