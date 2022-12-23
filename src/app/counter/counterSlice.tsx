@@ -6,6 +6,7 @@ export interface CounterState {
   Email: string;
   Name: string;
   Password: string;
+  DATA: Array<string>;
 }
 
 const initialState: CounterState = {
@@ -13,6 +14,7 @@ const initialState: CounterState = {
   Email: "",
   Name: "",
   Password: "",
+  DATA: [""],
 };
 
 export const counterSlice = createSlice({

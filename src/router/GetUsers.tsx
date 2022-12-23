@@ -29,7 +29,7 @@ const GetUsers = (props: Props) => {
       {datas.map((i: any) => {
         return (
           <Center mx={"auto"}>
-            <Example name={i.name} email={i.email} />
+            <Example name={i.name} email={i.email} id={i.id} />
           </Center>
         );
       })}

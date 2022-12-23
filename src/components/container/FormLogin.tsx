@@ -13,6 +13,7 @@ import {
   Stack,
   Pressable,
   Icon,
+  AspectRatio,
 } from "native-base";
 import { Platform } from "react-native";
 
@@ -52,12 +53,9 @@ const FormLogin = ({ navigation }: any) => {
   return (
     <Center height={"100%"} bg="black.300" width={"100%"}>
       {Platform.OS === "web" ? (
-        <Image
-          source={{
-            uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
-          }}
-          alt="image"
-        />
+        <AspectRatio w="100%" ratio={9 / 9} position={"absolute"}>
+          <Image source={require("../../../assets/game.jpg")} alt="image" />
+        </AspectRatio>
       ) : (
         <Image
           source={require("../../../assets/game.jpg")}

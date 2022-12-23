@@ -7,13 +7,22 @@ import {
   Image,
   AspectRatio,
   HStack,
+  Button,
 } from "native-base";
 import Emall from "./Emaill";
 interface type {
   name: string;
   email: string;
+  id: string;
 }
-const Example = ({ name, email }: type) => {
+const Example = ({ name, email, id }: type) => {
+  const Handle_delete = async () => {
+    const res = await fetch("http://localhost:3001/user/delete/" + id, {
+      method: "DELETE",
+    });
+    const data = res.json();
+    await fetch("http://localhost:3001/user");
+  };
   return (
     <Center bg={"red.600"}>
       <Box
@@ -58,13 +67,13 @@ const Example = ({ name, email }: type) => {
             px="3"
             py="1.5"
           >
-            {name}
+            T..
           </Center>
         </Box>
         <Stack p="4" space={3}>
           <Stack space={2}>
             <Heading size="md" ml="-1">
-              {email}
+              {name}
             </Heading>
             <Text
               fontSize="xs"
@@ -78,24 +87,20 @@ const Example = ({ name, email }: type) => {
               ml="-0.5"
               mt="-1"
             >
-              The Silicon Valley of India.
+              {email}
             </Text>
           </Stack>
-          <Text fontWeight="400">
-            Bengaluru (also called Bangalore) is the center of India's high-tech
-            industry. The city is also known for its parks and nightlife.
-          </Text>
+          <Text fontWeight="400">{id}</Text>
           <HStack alignItems="center" space={4} justifyContent="space-between">
             <HStack alignItems="center">
-              <Text
-                color="coolGray.600"
-                _dark={{
-                  color: "warmGray.200",
+              <Button
+                bg={"red.500"}
+                onPress={() => {
+                  Handle_delete(id);
                 }}
-                fontWeight="400"
               >
-                6 mins ago
-              </Text>
+                Delete
+              </Button>
             </HStack>
           </HStack>
         </Stack>
