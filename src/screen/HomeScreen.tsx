@@ -9,6 +9,7 @@ import {
   VStack,
 } from "native-base";
 import Read from "../components/mobile/Read";
+import { Platform } from "react-native";
 
 type Props = { navigation: any };
 
@@ -23,10 +24,13 @@ const HomeScreen = ({ navigation }: Props) => {
         <Button onPress={() => navigation.navigate("write")}>
           Go to Write And Add PDF
         </Button>
-        <Button onPress={() => navigation.navigate("Read")}>View PDF</Button>
-        <Button onPress={() => navigation.navigate("url_web")}>
-          View PDF URL on web
-        </Button>
+        {Platform.OS === "web" ? (
+          <Button onPress={() => navigation.navigate("url_web")}>
+            View PDF URL on web
+          </Button>
+        ) : (
+          <Button onPress={() => navigation.navigate("Read")}>View PDF</Button>
+        )}
       </VStack>
     </Center>
   );
