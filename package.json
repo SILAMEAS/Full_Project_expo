@@ -13,7 +13,9 @@
     "@hashiprobr/expo-pdf-reader": "^1.0.8",
     "@react-navigation/native": "^6.1.1",
     "@react-navigation/native-stack": "^6.9.7",
+    "@react-pdf-viewer/core": "3.9.0",
     "@reduxjs/toolkit": "^1.9.1",
+    "@types/react-pdf": "^6.2.0",
     "expo": "~47.0.9",
     "expo-file-system": "~15.1.1",
     "expo-file-system-view": "^0.1.7",
@@ -21,6 +23,8 @@
     "expo-sharing": "~11.0.1",
     "expo-status-bar": "~1.4.2",
     "native-base": "^3.4.25",
+    "pdfjs-dist": "3.1.81",
+    "pspdfkit": "^2022.5.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
@@ -29,7 +33,9 @@
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.9",
     "react-native-webview": "11.23.1",
+    "react-pdf": "^6.2.0",
     "react-redux": "^8.0.5",
+    "react-typescript-pdf-reader": "^0.0.13",
     "rn-pdf-reader-js": "4.1.1"
   },
   "devDependencies": {

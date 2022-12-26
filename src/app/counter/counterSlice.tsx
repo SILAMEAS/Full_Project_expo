@@ -6,7 +6,7 @@ export interface CounterState {
   Email: string;
   Name: string;
   Password: string;
-  DATA: Array<string>;
+  DATA: any;
 }
 
 const initialState: CounterState = {
@@ -14,7 +14,7 @@ const initialState: CounterState = {
   Email: "",
   Name: "",
   Password: "",
-  DATA: [""],
+  DATA: [],
 };
 
 export const counterSlice = createSlice({
@@ -30,6 +30,13 @@ export const counterSlice = createSlice({
     },
     setName: (state, action) => {
       state.Name = action.payload;
+    },
+    setDATA: (state, action) => {
+      console.log("Payload");
+      console.log(action.payload);
+      state.DATA = action.payload;
+      console.log("DATA");
+      console.log(state.DATA);
     },
     setPassword: (state, action) => {
       state.Password = action.payload;
@@ -51,6 +58,7 @@ export const {
   setEmail,
   setName,
   setPassword,
+  setDATA,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;
